@@ -142,6 +142,45 @@ dbfile: "e5sub.db"
 /task Manually execute a task (Bot Administrator)
 /log Get the most recent log file (Bot Administrator)
 ```
+
+## Convert data from mysql to sqlite
+
+If this command does not exist on your operating system.
+
+```bash
+# Centos
+sudo yum install sqlite
+# Archlinux
+sudo pacman -S sqlite3 
+# Ubuntu
+sudo apt-get install sqlite3
+```
+
+Export data
+
+```bash
+# Export MYSQL data
+mysqldump -h localhost -P 3306 -u root -p -t 数据库名 users > e5sub.sql
+# Filtering data
+grep "INSERT" e5sub.sql > e5sqlite.sql
+# Open sqlite database
+sqlite3 /opt/e5sub/e5sub.db
+# Create table and import data.
+sqlite3> CREATE TABLE `users` (
+  `tg_id` int(11) DEFAULT NULL,
+  `refresh_token` text,
+  `ms_id` varchar(255) DEFAULT NULL,
+  `uptime` int(11) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `client_id` varchar(255) DEFAULT NULL,
+  `client_secret` varchar(255) DEFAULT NULL,
+  `other` text);
+sqlite3> .read e5sqlite.sql
+sqlite3> .quit
+# Delete file
+rm -f e5sqlite.sql e5sub.sql
+```
+
 ## Others
 > Feedback time is not as expected
 

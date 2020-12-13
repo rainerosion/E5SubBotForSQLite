@@ -156,6 +156,40 @@ dbfile: "e5sub.db"
 /task 手动执行一次任务(Bot管理员)  
 /log 获取最近日志文件(Bot管理员)  
 ```
+
+## MYSQL数据库转SQLITE
+
+如果没有sqlite3命令请使用下列命令安装
+
+```bash
+sudo yum install sqlite -y
+```
+
+导出数据
+
+```bash
+# 导出mysql数据
+mysqldump -h localhost -P 3306 -u root -p -t 数据库名 users > e5sub.sql
+# 过滤数据
+grep "INSERT" e5sub.sql > e5sqlite.sql
+# 使用sqlite3打开数据库文件
+sqlite3 /opt/e5sub/e5sub.db
+# 创建表，导入数据
+sqlite3> CREATE TABLE `users` (
+  `tg_id` int(11) DEFAULT NULL,
+  `refresh_token` text,
+  `ms_id` varchar(255) DEFAULT NULL,
+  `uptime` int(11) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `client_id` varchar(255) DEFAULT NULL,
+  `client_secret` varchar(255) DEFAULT NULL,
+  `other` text);
+sqlite3> .read e5sqlite.sql
+sqlite3> .quit
+# 清除文件
+rm -f e5sqlite.sql e5sub.sql
+```
+
 ## 注意事项
 > 更新时间与北京时间不符
 
