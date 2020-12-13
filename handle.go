@@ -25,8 +25,8 @@ const (
 	/help 帮助
 	/task 手动执行一次任务(管理员)
 	/log 获取最近日志文件(管理员)
-	源码及使用方法：https://github.com/iyear/E5SubBot
-`
+    源代码：https://github.com/rainerosion/E5SubBot 
+	原作者：https://github.com/iyear/E5SubBot`
 )
 
 var (
