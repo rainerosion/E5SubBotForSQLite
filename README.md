@@ -160,7 +160,7 @@ Export data
 
 ```bash
 # Export MYSQL data
-mysqldump -h localhost -P 3306 -u root -p -t 数据库名 users > e5sub.sql
+mysqldump -h localhost -P 3306 -u root -p -t dbname users > e5sub.sql
 # Filtering data
 grep "INSERT" e5sub.sql > e5sqlite.sql
 # Open sqlite database
