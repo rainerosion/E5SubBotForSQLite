@@ -44,6 +44,14 @@ E5订阅为开发者订阅，只要调用相关API就有可能续期
 
 Bot创建教程:[Google](https://www.google.com/search?q=telegram+Bot%E5%88%9B%E5%BB%BA%E6%95%99%E7%A8%8B)
 
+### Docker部署
+```bash
+wget --no-check-certificate -O /root/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
+# 修改配置文件中的信息
+vim /root/config.yml
+docker run -itd -v /root/config.yml:/root/config.yml --restart=always --name e5bot rainerosion/e5subbot-sqlite
+```
+
 ### 二进制文件
 
 在[Releases](https://github.com/rainerosion/E5SubBot/releases)页面下载对应系统的二进制文件，上传至服务器

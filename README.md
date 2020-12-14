@@ -10,7 +10,7 @@ A Simple Telebot for E5 Renewal
 
 `Golang` + `SQLite`
 
-DEMO: https://t.me/raindev_bot (This DEMO is for testing only)
+DEMO: https://t.me/raindev_bot (This DEMO is agesor testing only)
 
 Communication: [Telegram Group](https://t.me/e5subbot)
 ## Introduction
@@ -45,6 +45,15 @@ Calling [Outlook ReadMail API](https://docs.microsoft.com/en-us/graph/api/user-l
 ## Deploy Your Own Bot
 
 Bot creation tutorial : [Microsoft](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-telegram?view=azure-bot-service-4.0)
+
+### Docker
+```bash
+wget --no-check-certificate -O /root/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
+# Modify configuration file
+vim /root/config.yml
+docker run -itd -v /root/config.yml:/root/config.yml --restart=always --name e5bot rainerosion/e5subbot-sqlite
+```
+
 
 ### Binary Deployment
 
