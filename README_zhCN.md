@@ -49,7 +49,7 @@ Bot创建教程:[Google](https://www.google.com/search?q=telegram+Bot%E5%88%9B%E
 wget --no-check-certificate -O /root/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
 # 修改配置文件中的信息
 vim /root/config.yml
-docker run -itd -v /root/config.yml:/root/config.yml --restart=always --name e5bot rainerosion/e5subbot-sqlite
+docker run -d -v /root/config.yml:/root/config.yml --restart=always --name e5bot rainerosion/e5subbot-sqlite
 ```
 
 ### 二进制文件
