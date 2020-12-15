@@ -156,7 +156,7 @@ dbfile: "e5sub.db"
 |cron|API call frequency, using `cron` expression|
 |bindmax|Maximum number of bindable|
 |dbfile|Database file|
-
+|lang|Simplified Chinese(default)：`zh_CN` English:`en_US`|
 ### Command
 ```
 /my View bound account information
