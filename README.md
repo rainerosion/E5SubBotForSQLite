@@ -69,6 +69,22 @@ nohup ./E5SubBot > /tmp/e5sub.log &
 ```
 Linux Systemd:
 
+- download file
+
+```bash
+wget https://github.com/rainerosion/E5SubBot/releases/download/0.2.1/E5SubBot_linux_x64.tar.gz
+# Unzip file
+tar xvjf E5SubBot_linux_x64.tar.gz
+# create folder
+mkdir /opt/e5sub
+# move file
+mv ./E5SubBot /opt/e5sub/E5SubBot
+# Add execution permission
+chmod a+x /opt/e5sub/E5SubBot
+# Modify configuration file
+vim /opt/e5sub/config.yml
+```
+
 - Edit service file
 
 ```bash
