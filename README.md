@@ -48,10 +48,11 @@ Bot creation tutorial : [Microsoft](https://docs.microsoft.com/en-us/azure/bot-s
 
 ### Docker
 ```bash
-wget --no-check-certificate -O /root/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
+mkdir /opt/e5sub
+wget --no-check-certificate -O /opt/e5sub/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
 # Modify configuration file
-vim /root/config.yml
-docker run -d -v /root/config.yml:/root/config.yml --restart=always --name e5bot rainerosion/e5subbot-sqlite
+vim /opt/e5sub/config.yml
+docker run -d -v /opt/e5sub/config.yml:/root/config.yml -v /opt/e5sub/e5sub.db:/root/e5sub.db --restart=always --name e5bot rainerosion/e5subbot-sqlite
 ```
 
 

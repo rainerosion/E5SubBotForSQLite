@@ -46,10 +46,11 @@ Bot创建教程:[Google](https://www.google.com/search?q=telegram+Bot%E5%88%9B%E
 
 ### Docker部署
 ```bash
-wget --no-check-certificate -O /root/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
+mkdir /opt/e5sub
+wget --no-check-certificate -O /opt/e5sub/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
 # 修改配置文件中的信息
-vim /root/config.yml
-docker run -d -v /root/config.yml:/root/config.yml --restart=always --name e5bot rainerosion/e5subbot-sqlite
+vim /opt/e5sub/config.yml
+docker run -d -v /opt/e5sub/config.yml:/root/config.yml -v /opt/e5sub/e5sub.db:/root/e5sub.db --restart=always --name e5bot rainerosion/e5subbot-sqlite
 ```
 
 ### 二进制文件
