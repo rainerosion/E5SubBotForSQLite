@@ -49,7 +49,7 @@ Bot creation tutorial : [Microsoft](https://docs.microsoft.com/en-us/azure/bot-s
 ### Docker
 ```bash
 mkdir /opt/e5sub
-wget --no-check-certificate -O /opt/e5sub/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
+wget --no-check-certificate -O /opt/e5sub/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBotForSQLite/master/config.yml.example
 # Modify configuration file
 vim /opt/e5sub/config.yml
 docker run -d -v /opt/e5sub/config.yml:/root/config.yml -v /opt/e5sub/e5sub.db:/root/e5sub.db --restart=always --name e5bot rainerosion/e5subbot-sqlite
@@ -58,7 +58,7 @@ docker run -d -v /opt/e5sub/config.yml:/root/config.yml -v /opt/e5sub/e5sub.db:/
 
 ### Binary Deployment
 
-Download the binary files of the corresponding system on the [Releases](https://github.com/rainerosion/E5SubBot/releases) page and upload it to the server
+Download the binary files of the corresponding system on the [Releases](https://github.com/rainerosion/E5SubBotForSQLite/releases) page and upload it to the server
 
 Windows: Start `E5SubBot.exe` in `cmd`
 
@@ -73,7 +73,7 @@ Linux Systemd:
 - download file
 
 ```bash
-wget https://github.com/rainerosion/E5SubBot/releases/download/0.2.1/E5SubBot_linux_x64.tar.gz
+wget https://github.com/rainerosion/E5SubBotForSQLite/releases/download/0.2.2/E5SubBot-linux-amd64.tar.gz
 # Unzip file
 tar xvjf E5SubBot_linux_x64.tar.gz
 # create folder

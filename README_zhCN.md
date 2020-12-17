@@ -47,7 +47,7 @@ Bot创建教程:[Google](https://www.google.com/search?q=telegram+Bot%E5%88%9B%E
 ### Docker部署
 ```bash
 mkdir /opt/e5sub
-wget --no-check-certificate -O /opt/e5sub/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBot/master/config.yml.example
+wget --no-check-certificate -O /opt/e5sub/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBotForSQLite/master/config.yml.example
 # 修改配置文件中的信息
 vim /opt/e5sub/config.yml
 docker run -d -v /opt/e5sub/config.yml:/root/config.yml -v /opt/e5sub/e5sub.db:/root/e5sub.db --restart=always --name e5bot rainerosion/e5subbot-sqlite
@@ -55,7 +55,7 @@ docker run -d -v /opt/e5sub/config.yml:/root/config.yml -v /opt/e5sub/e5sub.db:/
 
 ### 二进制文件
 
-在[Releases](https://github.com/rainerosion/E5SubBot/releases)页面下载对应系统的二进制文件，上传至服务器
+在[Releases](https://github.com/rainerosion/E5SubBotForSQLite/releases)页面下载对应系统的二进制文件，上传至服务器
 
 Windows: 在`cmd`中启动 `E5SubBot.exe`
 
@@ -70,7 +70,7 @@ Linux守护进程(适用于Centos)：
 - 下载文件
 
 ```bash
-wget https://github.com/rainerosion/E5SubBot/releases/download/0.2.1/E5SubBot_linux_x64.tar.gz
+wget https://github.com/rainerosion/E5SubBotForSQLite/releases/download/0.2.2/E5SubBot-linux-amd64.tar.gz
 # 解压文件
 tar xvjf E5SubBot_linux_x64.tar.gz
 # 创建文件夹
