@@ -47,6 +47,8 @@ Bot创建教程:[Google](https://www.google.com/search?q=telegram+Bot%E5%88%9B%E
 ### Docker部署
 ```bash
 mkdir /opt/e5sub
+# (重要)创建数据库文件
+touch /opt/e5sub/e5sub.db
 wget --no-check-certificate -O /opt/e5sub/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBotForSQLite/master/config.yml.example
 # 修改配置文件中的信息
 vim /opt/e5sub/config.yml

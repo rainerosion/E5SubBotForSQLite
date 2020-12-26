@@ -49,6 +49,8 @@ Bot creation tutorial : [Microsoft](https://docs.microsoft.com/en-us/azure/bot-s
 ### Docker
 ```bash
 mkdir /opt/e5sub
+# (important)Create database file
+touch /opt/e5sub/e5sub.db
 wget --no-check-certificate -O /opt/e5sub/config.yml https://raw.githubusercontent.com/rainerosion/E5SubBotForSQLite/master/config.yml.example
 # Modify configuration file
 vim /opt/e5sub/config.yml
