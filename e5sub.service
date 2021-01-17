@@ -1,0 +1,12 @@
+[Unit]
+Description=Telegram E5Sub Bot
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/e5sub
+ExecStart=/opt/e5sub/E5SubBot
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
