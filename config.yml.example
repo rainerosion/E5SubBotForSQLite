@@ -6,3 +6,4 @@ errlimit: 5
 cron: "1 */3 * * *"
 bindmax: 3
 dbfile: "e5sub.db"
+lang: zh_CN
