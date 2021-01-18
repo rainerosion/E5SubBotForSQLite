@@ -67,9 +67,9 @@ Linux(方法一):
 chmod a+x E5SubBot
 nohup ./E5SubBot > /tmp/e5sub.log &
 ```
-Linux守护进程(适用于Centos)：
+Linux守护进程(Systemd)：
 
-- 下载文件
+- 下载相关文件
 
 ```bash
 wget https://github.com/rainerosion/E5SubBotForSQLite/releases/download/0.2.2/E5SubBot-linux-amd64.tar.gz
@@ -83,29 +83,8 @@ mv ./E5SubBot /opt/e5sub/E5SubBot
 chmod a+x /opt/e5sub/E5SubBot
 # 编辑配置文件(文件内容请阅读部署配置)
 vim /opt/e5sub/config.yml
-```
-
-- 编辑systemd文件
-
-```bash
-vim /etc/systemd/system/e5sub.service
-```
-
-- 复制以下内容填入上述文件
-
-```reStructuredText
-[Unit]
-Description=Telegram E5Sub Bot
-
-[Service]
-Type=simple
-WorkingDirectory=/opt/e5sub
-ExecStart=/opt/e5sub/E5SubBot
-Restart=always
-RestartSec=30
-
-[Install]
-WantedBy=multi-user.target
+# 下载Systemd unit文件
+sudo wget -O /etc/systemd/system/e5sub.service https://raw.githubusercontent.com/rainerosion/E5SubBotForSQLite/master/e5sub.service
 ```
 
 - 重载配置启动服务
@@ -143,6 +122,7 @@ errlimit: 5
 cron: "1 */3 * * *"
 bindmax: 3
 dbfile: "e5sub.db"
+lang: zh_CN
 ```
 
 `bindmax`,`notice`,`admin`,`errlimit`可热更新，直接更新`config.yml`保存即可

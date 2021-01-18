@@ -80,35 +80,14 @@ wget https://github.com/rainerosion/E5SubBotForSQLite/releases/download/0.2.2/E5
 tar xvjf E5SubBot_linux_x64.tar.gz
 # create folder
 mkdir /opt/e5sub
-# move file
+# Move file
 mv ./E5SubBot /opt/e5sub/E5SubBot
 # Add execution permission
 chmod a+x /opt/e5sub/E5SubBot
 # Modify configuration file
 vim /opt/e5sub/config.yml
-```
-
-- Edit service file
-
-```bash
-vim /etc/systemd/system/e5sub.service
-```
-
-- Copy the following text
-
-```reStructuredText
-[Unit]
-Description=Telegram E5Sub Bot
-
-[Service]
-Type=simple
-WorkingDirectory=/opt/e5sub
-ExecStart=/opt/e5sub/E5SubBot
-Restart=always
-RestartSec=30
-
-[Install]
-WantedBy=multi-user.target
+# Download Systemd unit file
+sudo wget -O /etc/systemd/system/e5sub.service https://raw.githubusercontent.com/rainerosion/E5SubBotForSQLite/master/e5sub.service
 ```
 
 - Start service
@@ -146,6 +125,7 @@ errlimit: 5
 cron: "1 */3 * * *"
 bindmax: 3
 dbfile: "e5sub.db"
+lang: zh_CN
 ```
 
 `bindmax`, `notice`, `admin`, `errlimit` can be hot updated, just update `config.yml` to save.
