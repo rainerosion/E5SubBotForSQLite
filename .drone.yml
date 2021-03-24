@@ -4,8 +4,8 @@ type: docker
 name: E5SubBotForSQLite
 
 steps:
-    - name: gobuild
-    pull: if-not-exists
-    image: golang:alpine
-    commands:
-    - CGO_ENABLED=1 go build
+- name: gobuild
+ pull: if-not-exists
+ image: golang:alpine
+ commands:
+ - CGO_ENABLED=1 go build
