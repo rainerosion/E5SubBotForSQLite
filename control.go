@@ -190,7 +190,11 @@ func SignTask() {
 		UnbindUserStr = UnbindUserStr + ubu + "\n"
 	}
 	for _, a := range admin {
-		chat, _ := bot.ChatByID(strconv.FormatInt(a, 10))
+		chat, err := bot.ChatByID(strconv.FormatInt(a, 10))
+		if err != nil {
+			logger.Println(err)
+			continue
+		}
 		bot.Send(chat, gettext.Gettext("taskFeedbackAdmin")+time.Now().Format("2006-01-02 15:04:05")+gettext.Gettext("result")+strconv.Itoa(signOk)+"/"+strconv.Itoa(num)+gettext.Gettext("wrongAccount")+ErrUserStr+gettext.Gettext("clearingAccount")+UnbindUserStr)
 	}
 	fmt.Println("----Task End----")
